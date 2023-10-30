@@ -17,7 +17,13 @@ public class Program {
 		fruta2.setValor(3);
 		fruta2.setEstoque(60);
 		
+		Fruta fruta3 = new Fruta();
+		fruta3.setNome("Pintomba");
+		fruta3.setValor(1);
+		fruta3.setEstoque(20);
+		
 		FrutaDAO dao = new FrutaDAO();
-		dao.create(fruta2);
+		//dao.create(fruta3);
+		dao.delete("Pintomba");
 	}
 }

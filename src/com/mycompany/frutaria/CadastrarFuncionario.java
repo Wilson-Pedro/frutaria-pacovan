@@ -4,6 +4,10 @@
  */
 package com.mycompany.frutaria;
 
+import com.mycompany.frutaria.CadastrarFrutas;
+
+import model.bean.Administrador;
+
 /**
  *
  * @author victor

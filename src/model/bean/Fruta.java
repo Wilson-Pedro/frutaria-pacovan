@@ -17,6 +17,14 @@ public class Fruta implements Serializable{
 		super();
 	}
 
+	public Fruta(int id, String nome, int valor, int estoque) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.valor = valor;
+		this.estoque = estoque;
+	}
+
 	public Fruta(String nome, int valor, int estoque) {
 		this.nome = nome;
 		this.valor = valor;

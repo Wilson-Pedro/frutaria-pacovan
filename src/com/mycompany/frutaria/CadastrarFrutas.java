@@ -7,6 +7,7 @@ package com.mycompany.frutaria;
 import javax.swing.JOptionPane;
 
 import model.bean.Fruta;
+import model.bean.Frutas;
 import model.dao.FrutaDAO;
 
 /**
@@ -222,21 +223,22 @@ public class CadastrarFrutas extends javax.swing.JFrame {
 	}// GEN-LAST:event_TxtValorActionPerformed
 
 	private void BtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BtnSalvarActionPerformed
+		int id = Integer.parseInt(TxtCodigo.getText());
 		String nomeFruta = TxtNome.getText();
 		int valorFruta = Integer.parseInt(TxtValor.getText());
 		int estoqueFruta = Integer.parseInt(TxtEstoque.getText());
 
-		Fruta fruta = new Fruta(nomeFruta, valorFruta, estoqueFruta);
+		Fruta fruta = new Fruta(id, nomeFruta, valorFruta, estoqueFruta);
 		FrutaDAO dao = new FrutaDAO();
 		dao.create(fruta);
 		
-		String codigoFrutas = TxtCodigo.getText();
-		String nomeFrutas = TxtNome.getText();
-		Integer valorFrutas = Integer.parseInt(TxtValor.getText());
-		int estoqueFrutas = Integer.parseInt(TxtEstoque.getText());
-		
-		Frutas frutas = new Frutas(codigoFrutas, nomeFrutas, valorFrutas, estoqueFrutas);
-		this.model.CadastrarFrutas(frutas);
+//		String codigoFrutas = TxtCodigo.getText();
+//		String nomeFrutas = TxtNome.getText();
+//		Integer valorFrutas = Integer.parseInt(TxtValor.getText());
+//		int estoqueFrutas = Integer.parseInt(TxtEstoque.getText());
+//		
+//		Frutas frutas = new Frutas(codigoFrutas, nomeFrutas, valorFrutas, estoqueFrutas);
+		this.model.CadastrarFrutas(fruta);
 
 		LimparCampos();
 
