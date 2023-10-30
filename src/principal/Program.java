@@ -9,12 +9,12 @@ public class Program {
 		
 		Fruta fruta = new Fruta();
 		fruta.setNome("Banana");
-		fruta.setValor(2.50);
+		fruta.setValor(2);
 		fruta.setEstoque(50);
 		
 		Fruta fruta2 = new Fruta();
 		fruta2.setNome("Maçã");
-		fruta2.setValor(3.00);
+		fruta2.setValor(3);
 		fruta2.setEstoque(60);
 		
 		FrutaDAO dao = new FrutaDAO();

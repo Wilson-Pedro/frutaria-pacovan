@@ -1,12 +1,28 @@
 package model.bean;
 
-public class Fruta {
+import java.io.Serializable;
+
+public class Fruta implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	private int id;
+	
 	private String nome;
-	private Double valor;
+	
+	private int valor;
+	
 	private int estoque;
 	
+	public Fruta() {
+		super();
+	}
+
+	public Fruta(String nome, int valor, int estoque) {
+		this.nome = nome;
+		this.valor = valor;
+		this.estoque = estoque;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -23,11 +39,11 @@ public class Fruta {
 		this.nome = nome;
 	}
 	
-	public Double getValor() {
+	public int getValor() {
 		return valor;
 	}
 	
-	public void setValor(Double valor) {
+	public void setValor(int valor) {
 		this.valor = valor;
 	}
 	

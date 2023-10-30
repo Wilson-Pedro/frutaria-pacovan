@@ -4,6 +4,7 @@
  */
 package com.mycompany.frutaria;
 
+import model.bean.Fruta;
 
 public class Frutas {
     private String codigo;

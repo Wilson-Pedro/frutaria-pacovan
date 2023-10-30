@@ -4,8 +4,6 @@
  */
 package com.mycompany.frutaria;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author victor
