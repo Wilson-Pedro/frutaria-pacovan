@@ -4,6 +4,8 @@
  */
 package com.mycompany.frutaria;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author victor
@@ -33,7 +35,7 @@ public class telaPrincipal extends javax.swing.JFrame {
         MenuFutas = new javax.swing.JMenu();
         Cadastraritem = new javax.swing.JMenu();
         ClienteCadas = new javax.swing.JMenuItem();
-        FrutasCadas = new javax.swing.JMenuItem();
+        LoginFuncionario = new javax.swing.JMenuItem();
         SairTela = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,7 +78,7 @@ public class telaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(76, Short.MAX_VALUE))
         );
 
-        MenuFutas.setText("Frutas");
+        MenuFutas.setText("Comprar");
         MenuFutas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jMenuBar1.add(MenuFutas);
 
@@ -87,14 +89,14 @@ public class telaPrincipal extends javax.swing.JFrame {
         ClienteCadas.setText("Cliente");
         Cadastraritem.add(ClienteCadas);
 
-        FrutasCadas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        FrutasCadas.setText("Frutas");
-        FrutasCadas.addActionListener(new java.awt.event.ActionListener() {
+        LoginFuncionario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        LoginFuncionario.setText("Login");
+        LoginFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FrutasCadasActionPerformed(evt);
+                LoginFuncionarioActionPerformed(evt);
             }
         });
-        Cadastraritem.add(FrutasCadas);
+        Cadastraritem.add(LoginFuncionario);
 
         jMenuBar1.add(Cadastraritem);
 
@@ -125,10 +127,11 @@ public class telaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void FrutasCadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FrutasCadasActionPerformed
-     
-
-    }//GEN-LAST:event_FrutasCadasActionPerformed
+    private void LoginFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginFuncionarioActionPerformed
+      CadastrarFuncionario Cadfunc = new CadastrarFuncionario();
+      this.dispose();
+      Cadfunc.setVisible(true);
+    }//GEN-LAST:event_LoginFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,7 +171,7 @@ public class telaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Cadastraritem;
     private javax.swing.JMenuItem ClienteCadas;
-    private javax.swing.JMenuItem FrutasCadas;
+    private javax.swing.JMenuItem LoginFuncionario;
     private javax.swing.JLabel LogoPacovan;
     private javax.swing.JMenu MenuFutas;
     private javax.swing.JPanel PainelLogo;
