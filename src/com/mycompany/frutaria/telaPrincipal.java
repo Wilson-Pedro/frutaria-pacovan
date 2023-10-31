@@ -31,12 +31,15 @@ public class telaPrincipal extends javax.swing.JFrame {
         PainelLogo = new javax.swing.JPanel();
         LogoPacovan = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jToolBar1 = new javax.swing.JToolBar();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuFutas = new javax.swing.JMenu();
+        ItemComprar = new javax.swing.JMenuItem();
         Cadastraritem = new javax.swing.JMenu();
         ClienteCadas = new javax.swing.JMenuItem();
         LoginFuncionario = new javax.swing.JMenuItem();
-        SairTela = new javax.swing.JMenu();
+        MenuOutro = new javax.swing.JMenu();
+        SairTela = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Frutaria pacovan");
@@ -75,11 +78,28 @@ public class telaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LogoPacovan, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
+
+        jToolBar1.setRollover(true);
 
         MenuFutas.setText("Comprar");
         MenuFutas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        MenuFutas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuFutasActionPerformed(evt);
+            }
+        });
+
+        ItemComprar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ItemComprar.setText("Frutas");
+        ItemComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemComprarActionPerformed(evt);
+            }
+        });
+        MenuFutas.add(ItemComprar);
+
         jMenuBar1.add(MenuFutas);
 
         Cadastraritem.setText("Cadastrar");
@@ -100,9 +120,19 @@ public class telaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Cadastraritem);
 
+        MenuOutro.setText("Outros");
+        MenuOutro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        SairTela.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         SairTela.setText("Sair");
-        SairTela.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jMenuBar1.add(SairTela);
+        SairTela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SairTelaActionPerformed(evt);
+            }
+        });
+        MenuOutro.add(SairTela);
+
+        jMenuBar1.add(MenuOutro);
 
         setJMenuBar(jMenuBar1);
 
@@ -114,11 +144,13 @@ public class telaPrincipal extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(PainelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
                 .addComponent(PainelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
@@ -132,6 +164,20 @@ public class telaPrincipal extends javax.swing.JFrame {
       this.dispose();
       Cadfunc.setVisible(true);
     }//GEN-LAST:event_LoginFuncionarioActionPerformed
+
+    private void MenuFutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFutasActionPerformed
+      
+    }//GEN-LAST:event_MenuFutasActionPerformed
+
+    private void ItemComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemComprarActionPerformed
+       ComprarFrutas cf = new ComprarFrutas();
+       this.dispose();
+       cf.setVisible(true);
+    }//GEN-LAST:event_ItemComprarActionPerformed
+
+    private void SairTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairTelaActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_SairTelaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,12 +217,15 @@ public class telaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Cadastraritem;
     private javax.swing.JMenuItem ClienteCadas;
+    private javax.swing.JMenuItem ItemComprar;
     private javax.swing.JMenuItem LoginFuncionario;
     private javax.swing.JLabel LogoPacovan;
     private javax.swing.JMenu MenuFutas;
+    private javax.swing.JMenu MenuOutro;
     private javax.swing.JPanel PainelLogo;
-    private javax.swing.JMenu SairTela;
+    private javax.swing.JMenuItem SairTela;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

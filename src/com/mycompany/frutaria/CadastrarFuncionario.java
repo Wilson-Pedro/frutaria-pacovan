@@ -3,11 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.frutaria;
-
 import com.mycompany.frutaria.CadastrarFrutas;
 
 import model.bean.Administrador;
-
 /**
  *
  * @author victor
@@ -37,6 +35,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         jlabel3 = new javax.swing.JLabel();
         TxtSenha = new javax.swing.JPasswordField();
         BtnSalvarFuncionario = new javax.swing.JButton();
+        VoltarHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -56,12 +55,21 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         jlabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlabel3.setText("SENHA");
 
-        BtnSalvarFuncionario.setBackground(new java.awt.Color(0, 255, 51));
-        BtnSalvarFuncionario.setFont(new java.awt.Font("Segoe UI Symbol", 3, 14)); // NOI18N
+        BtnSalvarFuncionario.setBackground(new java.awt.Color(0, 204, 0));
+        BtnSalvarFuncionario.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         BtnSalvarFuncionario.setText("LOGAR");
         BtnSalvarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarFuncionarioActionPerformed(evt);
+            }
+        });
+
+        VoltarHome.setBackground(new java.awt.Color(0, 204, 0));
+        VoltarHome.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        VoltarHome.setText("VOLTAR");
+        VoltarHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoltarHomeActionPerformed(evt);
             }
         });
 
@@ -84,11 +92,14 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
                         .addGap(106, 106, 106)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(BtnSalvarFuncionario)))
+                            .addComponent(TxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(102, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(VoltarHome)
+                .addGap(51, 51, 51)
+                .addComponent(BtnSalvarFuncionario)
+                .addGap(122, 122, 122))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,7 +115,9 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(TxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(BtnSalvarFuncionario)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnSalvarFuncionario)
+                    .addComponent(VoltarHome))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
@@ -122,7 +135,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();
@@ -140,6 +153,12 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_BtnSalvarFuncionarioActionPerformed
+
+    private void VoltarHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarHomeActionPerformed
+       telaPrincipal tp = new telaPrincipal();
+       this.dispose();
+       tp.setVisible(true);
+    }//GEN-LAST:event_VoltarHomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,6 +200,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel Login;
     private javax.swing.JPasswordField TxtSenha;
     private javax.swing.JTextField TxtUsuario;
+    private javax.swing.JButton VoltarHome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlabel3;
