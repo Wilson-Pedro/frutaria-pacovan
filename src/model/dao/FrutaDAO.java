@@ -51,7 +51,7 @@ public class FrutaDAO {
 			
 			System.out.println(nome + " deleteado com Sucesso!");
 		} catch (SQLException e) {
-			throw new RuntimeException("Erro ao salvar " + e);
+			throw new RuntimeException("Erro ao deletar fruta " + e);
 			
 		} finally {
 			ConnectionFactory.closeConnection(conn, stmt);
@@ -79,13 +79,46 @@ public class FrutaDAO {
 				list.add(fruta);
 			}
 		} catch (SQLException e) {
-			throw new RuntimeException("Erro ao salvar " + e);
+			throw new RuntimeException("Erro ao buscar todas as frutas " + e);
 			
 		} finally {
 			ConnectionFactory.closeConnection(conn, stmt, rs);
 		}
 		
 		return list;
+	}
+	
+	public Fruta buscarFrutaPorNome(String nome) {
+		Connection conn = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		Fruta fruta = null;
+		
+		String sql = "SELECT * FROM tb_fruta WHERE nome = ?";
+		
+		try {
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, nome);
+			
+			rs = stmt.executeQuery();
+			
+			if(rs.next()) {
+				fruta = new Fruta();
+				fruta.setId(rs.getInt("id"));
+				fruta.setNome(rs.getString("nome"));
+				fruta.setValor(rs.getInt("valor"));
+				fruta.setEstoque(rs.getInt("estoque"));
+			}
+			
+			System.out.println("Fruta achada com Sucesso!");
+		} catch (SQLException e) {
+			throw new RuntimeException("Erro ao buscar a fruta " + e);
+			
+		} finally {
+			ConnectionFactory.closeConnection(conn, stmt);
+		}
+		
+		return fruta;
 	}
 	
 	public int getTotalLinhas() {
@@ -104,12 +137,37 @@ public class FrutaDAO {
 				allRows = rs.getInt("totalLinhas");
 			}
 		} catch (SQLException e) {
-			throw new RuntimeException("Erro ao salvar " + e);
+			throw new RuntimeException("Erro ao pegar número linhas " + e);
 			
 		} finally {
 			ConnectionFactory.closeConnection(conn, stmt, rs);
 		}
 		
 		return allRows;
+	}
+	
+	public void update(Fruta fruta) {
+		
+		Connection conn = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		String sql = "UPDATE tb_fruta SET nome = ?, valor = ?, estoque = ? WHERE nome = ?";
+		
+		try {
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, fruta.getNome());
+			stmt.setInt(2, fruta.getValor());
+			stmt.setInt(3, fruta.getEstoque());
+			stmt.setString(4, fruta.getNome());
+			
+			stmt.executeUpdate();
+			
+			System.out.println("Fruta atualizado com sucesso com Sucesso!");
+		} catch (SQLException e) {
+			throw new RuntimeException("Erro ao salvar " + e);
+			
+		} finally {
+			ConnectionFactory.closeConnection(conn, stmt);
+		}	
 	}
 }

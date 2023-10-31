@@ -62,4 +62,8 @@ public class Fruta implements Serializable{
 	public void setEstoque(int estoque) {
 		this.estoque = estoque;
 	}
+	
+	public void atualizarEstoque(int quantidade) {
+		setEstoque(getEstoque() - quantidade);
+	}
 }
