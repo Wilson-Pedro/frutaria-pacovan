@@ -4,17 +4,22 @@
  */
 package com.mycompany.frutaria;
 
+import model.bean.Fruta;
+import model.dao.FrutaDAO;
+
 /**
  *
  * @author victor
  */
 public class ComprarFrutas extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ComprarFrutas
-     */
+	private static final long serialVersionUID = 1L;
+
+	ModelFrutas model = new ModelFrutas();
+	
     public ComprarFrutas() {
         initComponents();
+        TbComprarFrutas.setModel(model);
     }
 
     /**
@@ -81,7 +86,7 @@ public class ComprarFrutas extends javax.swing.JFrame {
         jButton1.setText("MANDAR P/ CARRINHO");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+            	btnMandarProCarrinho(evt);
             }
         });
 
@@ -173,12 +178,21 @@ public class ComprarFrutas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TxtNomeComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNomeComprarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtNomeComprarActionPerformed
+        
+    }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnMandarProCarrinho(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    	String nome = TxtNomeComprar.getText();
+        int quantidade = Integer.parseInt(TxtQuantComprar.getText());
+        int valor = Integer.parseInt(TxtValorComprar.getText());
+        
+        FrutaDAO dao = new FrutaDAO();
+        
+        Fruta fruta = dao.buscarFrutaPorNome(nome);
+        fruta.atualizarEstoque(quantidade);
+        
+        dao.update(fruta);
+    }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        telaPrincipal tp = new telaPrincipal();

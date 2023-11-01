@@ -13,7 +13,10 @@ import model.dao.FrutaDAO;
  * @author victor
  */
 public class CadastrarFrutas extends javax.swing.JFrame {
-        ModelFrutas model = new ModelFrutas();
+	
+	private static final long serialVersionUID = 1L;
+	
+	ModelFrutas model = new ModelFrutas();
     /**
      * Creates new form CadastrarFrutas
      */
@@ -235,7 +238,7 @@ public class CadastrarFrutas extends javax.swing.JFrame {
     }//GEN-LAST:event_TxtValorActionPerformed
 
     private void BtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarActionPerformed
-                int id = Integer.parseInt(TxtCodigo.getText());
+        int id = Integer.parseInt(TxtCodigo.getText());
 		String nomeFruta = TxtNome.getText();
 		int valorFruta = Integer.parseInt(TxtValor.getText());
 		int estoqueFruta = Integer.parseInt(TxtEstoque.getText());
@@ -252,7 +255,7 @@ public class CadastrarFrutas extends javax.swing.JFrame {
         
       
           
-          this.model.CadastrarFrutas(f);
+          this.model.CadastrarFrutas(fruta);
         
           LimparCampos();
     }//GEN-LAST:event_BtnSalvarActionPerformed
