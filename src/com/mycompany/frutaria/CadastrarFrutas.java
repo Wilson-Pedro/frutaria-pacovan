@@ -22,6 +22,9 @@ public class CadastrarFrutas extends javax.swing.JFrame {
         TbCadastro.setModel(model);
 
     }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -245,6 +248,7 @@ public class CadastrarFrutas extends javax.swing.JFrame {
 //        String nome = TxtNome.getText();
 //        int valor = Integer.parseInt(TxtValor.getText());
 //        int estoque = Integer.parseInt(TxtEstoque.getText());
+            Fruta f = null;
         
       
           
