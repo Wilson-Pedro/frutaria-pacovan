@@ -4,15 +4,29 @@
  */
 package com.mycompany.frutaria;
 
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 import model.bean.Fruta;
-import model.bean.Frutas;
 import model.dao.FrutaDAO;
 /**
  *
  * @author victor
  */
-public class CadastrarFrutas extends javax.swing.JFrame {
+public class CadastrarFrutas extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -218,23 +232,23 @@ public class CadastrarFrutas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TxtEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtEstoqueActionPerformed
+    private void TxtEstoqueActionPerformed(ActionEvent evt) {//GEN-FIRST:event_TxtEstoqueActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtEstoqueActionPerformed
 
-    private void TxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCodigoActionPerformed
+    private void TxtCodigoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_TxtCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtCodigoActionPerformed
 
-    private void TxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNomeActionPerformed
+    private void TxtNomeActionPerformed(ActionEvent evt) {//GEN-FIRST:event_TxtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtNomeActionPerformed
 
-    private void TxtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtValorActionPerformed
+    private void TxtValorActionPerformed(ActionEvent evt) {//GEN-FIRST:event_TxtValorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtValorActionPerformed
 
-    private void BtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarActionPerformed
+    private void BtnSalvarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_BtnSalvarActionPerformed
         int id = Integer.parseInt(TxtCodigo.getText());
 		String nomeFruta = TxtNome.getText();
 		int valorFruta = Integer.parseInt(TxtValor.getText());
@@ -251,12 +265,12 @@ public class CadastrarFrutas extends javax.swing.JFrame {
         
       
           
-          this.model.CadastrarFrutas(fruta);
+          this.model.cadastrarFrutas(fruta);
         
           LimparCampos();
     }//GEN-LAST:event_BtnSalvarActionPerformed
 
-    private void VoltarHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarHomeActionPerformed
+    private void VoltarHomeActionPerformed(ActionEvent evt) {//GEN-FIRST:event_VoltarHomeActionPerformed
       telaPrincipal tp = new telaPrincipal();
       this.dispose();
       tp.setVisible(true);
@@ -286,25 +300,25 @@ public class CadastrarFrutas extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastrarFrutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarFrutas.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastrarFrutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarFrutas.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastrarFrutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastrarFrutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarFrutas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(CadastrarFrutas.class.getName()).log(Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CadastrarFrutas().setVisible(true);
             }
@@ -312,19 +326,19 @@ public class CadastrarFrutas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnSalvar;
-    private javax.swing.JLabel HeaderCadastrarFrutas;
-    private javax.swing.JTable TbCadastro;
-    private javax.swing.JTextField TxtCodigo;
-    private javax.swing.JTextField TxtEstoque;
-    private javax.swing.JTextField TxtNome;
-    private javax.swing.JTextField TxtValor;
-    private javax.swing.JButton VoltarHome;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private JButton BtnSalvar;
+    private JLabel HeaderCadastrarFrutas;
+    private JTable TbCadastro;
+    private JTextField TxtCodigo;
+    private JTextField TxtEstoque;
+    private JTextField TxtNome;
+    private JTextField TxtValor;
+    private JButton VoltarHome;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JLabel jLabel4;
+    private JPanel jPanel1;
+    private JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

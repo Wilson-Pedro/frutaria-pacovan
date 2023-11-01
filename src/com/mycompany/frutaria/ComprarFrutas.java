@@ -4,6 +4,23 @@
  */
 package com.mycompany.frutaria;
 
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.table.DefaultTableModel;
+
 import model.bean.Fruta;
 import model.dao.FrutaDAO;
 
@@ -11,7 +28,7 @@ import model.dao.FrutaDAO;
  *
  * @author victor
  */
-public class ComprarFrutas extends javax.swing.JFrame {
+public class ComprarFrutas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
@@ -19,7 +36,7 @@ public class ComprarFrutas extends javax.swing.JFrame {
 	
     public ComprarFrutas() {
         initComponents();
-        TbComprarFrutas.setModel(model);
+       TbComprarFrutas.setModel(model);
     }
 
     /**
@@ -177,11 +194,11 @@ public class ComprarFrutas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TxtNomeComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNomeComprarActionPerformed
+    private void TxtNomeComprarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_TxtNomeComprarActionPerformed
         
     }
 
-    private void btnMandarProCarrinho(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnMandarProCarrinho(ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     	String nome = TxtNomeComprar.getText();
         int quantidade = Integer.parseInt(TxtQuantComprar.getText());
         int valor = Integer.parseInt(TxtValorComprar.getText());
@@ -192,9 +209,18 @@ public class ComprarFrutas extends javax.swing.JFrame {
         fruta.atualizarEstoque(quantidade);
         
         dao.update(fruta);
+        
+        
+        limparCampos();
+    }
+    
+    private void limparCampos() {
+    	TxtNomeComprar.setText("");
+        TxtQuantComprar.setText("");
+        TxtValorComprar.setText("");
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        telaPrincipal tp = new telaPrincipal();
        this.dispose();
        tp.setVisible(true);
@@ -210,25 +236,25 @@ public class ComprarFrutas extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ComprarFrutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(ComprarFrutas.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ComprarFrutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(ComprarFrutas.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ComprarFrutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ComprarFrutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(ComprarFrutas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(ComprarFrutas.class.getName()).log(Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ComprarFrutas().setVisible(true);
             }
@@ -236,17 +262,17 @@ public class ComprarFrutas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TbComprarFrutas;
-    private javax.swing.JTextField TxtNomeComprar;
-    private javax.swing.JTextField TxtQuantComprar;
-    private javax.swing.JTextField TxtValorComprar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private JTable TbComprarFrutas;
+    private JTextField TxtNomeComprar;
+    private JTextField TxtQuantComprar;
+    private JTextField TxtValorComprar;
+    private JButton jButton1;
+    private JButton jButton2;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JLabel jLabel4;
+    private JPanel jPanel1;
+    private JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

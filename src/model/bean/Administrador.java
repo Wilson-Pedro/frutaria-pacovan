@@ -3,29 +3,20 @@ package model.bean;
 public class Administrador extends Usuario{
 	private static final long serialVersionUID = 1L;
 	
-	private String email;
     private String senha;
 
 	public Administrador() {
 		super();
 	}
 
-	public Administrador(int id, String nome, String sobrenome) {
-		super(id, nome, sobrenome);
-	}
-
-	public Administrador(String email, String senha) {
-		super();
-		this.email = email;
+	public Administrador(int id, String nome, String sobrenome, String cpf, String telefone, String senha) {
+		super(id, nome, sobrenome, cpf, telefone);
 		this.senha = senha;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public Administrador(String nome, String senha) {
+		setNome(nome);
+		this.senha = senha;
 	}
 
 	public String getSenha() {

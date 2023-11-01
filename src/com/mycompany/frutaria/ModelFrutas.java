@@ -12,6 +12,9 @@ import model.bean.Fruta;
 import model.dao.FrutaDAO;
 
 public class ModelFrutas extends AbstractTableModel {
+
+	private static final long serialVersionUID = 1L;
+	
 	FrutaDAO dao = new FrutaDAO();
 	List<Fruta> frutas = dao.buscarTodos();
 
@@ -31,7 +34,7 @@ public class ModelFrutas extends AbstractTableModel {
 		return colunas[collumn];
 	}
 
-	public void CadastrarFrutas(Fruta fruta) {
+	public void cadastrarFrutas(Fruta fruta) {
 		frutas.add(fruta);
 		this.fireTableDataChanged();
 	}
