@@ -8,15 +8,19 @@ public class Usuario implements Serializable{
 	private int id;
 	private String nome;
 	private String sobrenome;
+	private String cpf;
+	private String telefone;
 	
 	public Usuario() {
 	}
 
-	public Usuario(int id, String nome, String sobrenome) {
+	public Usuario(int id, String nome, String sobrenome, String cpf, String telefone) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
+		this.cpf = cpf;
+		this.telefone = telefone;
 	}
 
 	public int getId() {
@@ -41,5 +45,21 @@ public class Usuario implements Serializable{
 
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 }

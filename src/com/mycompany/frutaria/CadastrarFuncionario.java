@@ -146,7 +146,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         String email = TxtUsuario.getText();
         String senha = String.valueOf(TxtSenha.getPassword());
         
-        if(email.equals(adm.getEmail()) && senha.equals(adm.getSenha())){
+        if(email.equals(adm.getNome()) && senha.equals(adm.getSenha())){
            CadastrarFrutas cad = new CadastrarFrutas();
             this.dispose();
             cad.setVisible(true);
