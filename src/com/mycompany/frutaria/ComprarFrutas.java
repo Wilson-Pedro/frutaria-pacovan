@@ -4,23 +4,6 @@
  */
 package com.mycompany.frutaria;
 
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.table.DefaultTableModel;
-
 import model.bean.Fruta;
 import model.dao.FrutaDAO;
 
@@ -28,15 +11,13 @@ import model.dao.FrutaDAO;
  *
  * @author victor
  */
-public class ComprarFrutas extends JFrame {
+public class ComprarFrutas extends javax.swing.JFrame {
 
-	private static final long serialVersionUID = 1L;
-
-	ModelFrutas model = new ModelFrutas();
-	
+    /**
+     * Creates new form ComprarFrutas
+     */
     public ComprarFrutas() {
         initComponents();
-       TbComprarFrutas.setModel(model);
     }
 
     /**
@@ -50,16 +31,18 @@ public class ComprarFrutas extends JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TbComprarFrutas = new javax.swing.JTable();
+        TblComprarFrutas = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        TxtNomeComprar = new javax.swing.JTextField();
+        TxtCpf = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         TxtQuantComprar = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         TxtValorComprar = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        TxtNome = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -67,7 +50,7 @@ public class ComprarFrutas extends JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        TbComprarFrutas.setModel(new javax.swing.table.DefaultTableModel(
+        TblComprarFrutas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -78,32 +61,44 @@ public class ComprarFrutas extends JFrame {
                 "Title 1", "Title 2", "Title 3"
             }
         ));
-        jScrollPane1.setViewportView(TbComprarFrutas);
+        jScrollPane1.setViewportView(TblComprarFrutas);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("BOAS COMPRAS!!!");
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("NOME:");
+        jLabel2.setText("CPF:");
 
-        TxtNomeComprar.addActionListener(new java.awt.event.ActionListener() {
+        TxtCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtNomeComprarActionPerformed(evt);
+                TxtCpfActionPerformed(evt);
             }
         });
 
         jLabel3.setText("QUANTIDADE:");
 
+        TxtQuantComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtQuantComprarActionPerformed(evt);
+            }
+        });
+
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("VALOR:");
+
+        TxtValorComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtValorComprarActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(0, 204, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jButton1.setText("MANDAR P/ CARRINHO");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	btnMandarProCarrinho(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -115,6 +110,9 @@ public class ComprarFrutas extends JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("NOME:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,15 +132,19 @@ public class ComprarFrutas extends JFrame {
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TxtNomeComprar)
-                                    .addComponent(TxtQuantComprar)
-                                    .addComponent(TxtValorComprar, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(81, 81, 81)
-                                .addComponent(jButton1)))))
+                                .addComponent(jButton1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(TxtCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                    .addComponent(TxtValorComprar, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                    .addComponent(TxtQuantComprar, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                    .addComponent(TxtNome)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -151,25 +153,29 @@ public class ComprarFrutas extends JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(TxtNomeComprar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(TxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(TxtQuantComprar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(TxtValorComprar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(82, 82, 82)
+                        .addGap(59, 59, 59)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
-                            .addComponent(jButton2)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton2))))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -177,29 +183,26 @@ public class ComprarFrutas extends JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 14, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TxtNomeComprarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_TxtNomeComprarActionPerformed
-        
-    }
+    private void TxtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtCpfActionPerformed
 
-    private void btnMandarProCarrinho(ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    	String nome = TxtNomeComprar.getText();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+       String nome = TxtCpf.getText();
         int quantidade = Integer.parseInt(TxtQuantComprar.getText());
         int valor = Integer.parseInt(TxtValorComprar.getText());
         
@@ -212,19 +215,27 @@ public class ComprarFrutas extends JFrame {
         
         
         limparCampos();
-    }
-    
-    private void limparCampos() {
-    	TxtNomeComprar.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+     private void limparCampos() {
+    	TxtCpf.setText("");
         TxtQuantComprar.setText("");
         TxtValorComprar.setText("");
     }
-
-    private void jButton2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        telaPrincipal tp = new telaPrincipal();
        this.dispose();
        tp.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void TxtValorComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtValorComprarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtValorComprarActionPerformed
+
+    private void TxtQuantComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtQuantComprarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtQuantComprarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,25 +247,25 @@ public class ComprarFrutas extends JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ComprarFrutas.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ComprarFrutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            Logger.getLogger(ComprarFrutas.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ComprarFrutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(ComprarFrutas.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(ComprarFrutas.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ComprarFrutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ComprarFrutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ComprarFrutas().setVisible(true);
             }
@@ -262,17 +273,19 @@ public class ComprarFrutas extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private JTable TbComprarFrutas;
-    private JTextField TxtNomeComprar;
-    private JTextField TxtQuantComprar;
-    private JTextField TxtValorComprar;
-    private JButton jButton1;
-    private JButton jButton2;
-    private JLabel jLabel1;
-    private JLabel jLabel2;
-    private JLabel jLabel3;
-    private JLabel jLabel4;
-    private JPanel jPanel1;
-    private JScrollPane jScrollPane1;
+    private javax.swing.JTable TblComprarFrutas;
+    private javax.swing.JTextField TxtCpf;
+    private javax.swing.JTextField TxtNome;
+    private javax.swing.JTextField TxtQuantComprar;
+    private javax.swing.JTextField TxtValorComprar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
