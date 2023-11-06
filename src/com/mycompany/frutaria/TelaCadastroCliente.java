@@ -4,7 +4,8 @@
  */
 package com.mycompany.frutaria;
 
-import javax.swing.JOptionPane;
+import model.bean.Cliente;
+import model.dao.ClienteDAO;
 
 /**
  *
@@ -208,8 +209,26 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSairActionPerformed
 
     private void BtnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarClienteActionPerformed
-       JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!!");
-    }//GEN-LAST:event_BtnCadastrarClienteActionPerformed
+       String nome = TxtNome.getText();
+       String cpf = TxtCpf.getText();
+       String numero = TxtNumero.getText();
+       String endereco = TxtEndereco.getText();
+       
+       Cliente cliente = new Cliente(nome, cpf, numero, endereco);
+       ClienteDAO dao = new ClienteDAO();
+       dao.create(cliente);
+       
+       LimparCampos();
+       
+    	//JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!!");
+    }
+    
+    public void LimparCampos(){
+    	TxtNome.setText("");
+    	TxtCpf.setText("");
+    	TxtNumero.setText("");
+    	TxtEndereco.setText("");
+    }
 
     /**
      * @param args the command line arguments

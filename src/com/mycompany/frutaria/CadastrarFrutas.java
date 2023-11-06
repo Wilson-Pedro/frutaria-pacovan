@@ -265,7 +265,7 @@ public class CadastrarFrutas extends JFrame {
 //        String nome = TxtNome.getText();
 //        int valor = Integer.parseInt(TxtValor.getText());
 //        int estoque = Integer.parseInt(TxtEstoque.getText());
-            Fruta f = null;
+        Fruta f = null;
         
       
           

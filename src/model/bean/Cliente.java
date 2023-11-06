@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.frutaria;
+package model.bean;
 
 public class Cliente {
     
@@ -10,7 +10,14 @@ public class Cliente {
 	private String nome;
 	private String cpf;
 	private String numero;
-	private String endereco; 
+	private String endereco;
+	
+	public Cliente(String nome, String cpf, String numero, String endereco) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.numero = numero;
+		this.endereco = endereco;
+	}
 
     public Cliente(int id, String nome, String cpf, String numero, String endereco) {
 		this.id = id;
