@@ -73,7 +73,7 @@ public class FrutaDAO {
 				Fruta fruta = new Fruta();
 				fruta.setId(rs.getInt("id"));
 				fruta.setNome(rs.getString("nome"));
-				fruta.setValor(rs.getInt("valor"));
+				fruta.setValor(rs.getDouble("valor"));
 				fruta.setEstoque(rs.getInt("estoque"));
 				
 				list.add(fruta);
@@ -106,7 +106,7 @@ public class FrutaDAO {
 				fruta = new Fruta();
 				fruta.setId(rs.getInt("id"));
 				fruta.setNome(rs.getString("nome"));
-				fruta.setValor(rs.getInt("valor"));
+				fruta.setValor(rs.getDouble("valor"));
 				fruta.setEstoque(rs.getInt("estoque"));
 			}
 			
@@ -156,7 +156,7 @@ public class FrutaDAO {
 		try {
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, fruta.getNome());
-			stmt.setInt(2, fruta.getValor());
+			stmt.setDouble(2, fruta.getValor());
 			stmt.setInt(3, fruta.getEstoque());
 			stmt.setString(4, fruta.getNome());
 			

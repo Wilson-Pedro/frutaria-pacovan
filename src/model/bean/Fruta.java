@@ -2,6 +2,8 @@ package model.bean;
 
 import java.io.Serializable;
 
+import javax.lang.model.element.QualifiedNameable;
+
 public class Fruta implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -9,7 +11,7 @@ public class Fruta implements Serializable{
 	
 	private String nome;
 	
-	private int valor;
+	private Double valor;
 	
 	private int estoque;
 	
@@ -17,7 +19,7 @@ public class Fruta implements Serializable{
 		super();
 	}
 
-	public Fruta(int id, String nome, int valor, int estoque) {
+	public Fruta(int id, String nome, Double valor, int estoque) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -25,7 +27,7 @@ public class Fruta implements Serializable{
 		this.estoque = estoque;
 	}
 
-	public Fruta(String nome, int valor, int estoque) {
+	public Fruta(String nome, Double valor, int estoque) {
 		this.nome = nome;
 		this.valor = valor;
 		this.estoque = estoque;
@@ -47,11 +49,11 @@ public class Fruta implements Serializable{
 		this.nome = nome;
 	}
 	
-	public int getValor() {
+	public Double getValor() {
 		return valor;
 	}
 	
-	public void setValor(int valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 	
@@ -65,5 +67,9 @@ public class Fruta implements Serializable{
 	
 	public void atualizarEstoque(int quantidade) {
 		setEstoque(getEstoque() - quantidade);
+	}
+	
+	public Double getSubTotal(int quantidade) {
+		return valor * quantidade;
 	}
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30-Out-2023 às 01:02
+-- Tempo de geração: 04-Nov-2023 às 23:34
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -30,16 +30,23 @@ SET time_zone = "+00:00";
 CREATE TABLE `tb_fruta` (
   `id` int(11) UNSIGNED NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `valor` int(11) NOT NULL,
-  `estoque` int(11) NOT NULL
+  `estoque` int(11) NOT NULL,
+  `valor` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `tb_fruta`
 --
 
-INSERT INTO `tb_fruta` (`id`, `nome`, `valor`, `estoque`) VALUES
-(1, 'Uva', 1, 50);
+INSERT INTO `tb_fruta` (`id`, `nome`, `estoque`, `valor`) VALUES
+(1, 'Uva', 23, 1),
+(2, 'Melão', 19, 5),
+(3, 'Pitatia', 12, 10),
+(5, 'Laranja', 10, 3.75),
+(6, 'Jambo', 10, 5),
+(7, 'Abacate', 19, 10),
+(8, 'Morango', 78, 20),
+(9, 'Banana', 50, 1.25);
 
 --
 -- Índices para tabelas despejadas
@@ -59,7 +66,7 @@ ALTER TABLE `tb_fruta`
 -- AUTO_INCREMENT de tabela `tb_fruta`
 --
 ALTER TABLE `tb_fruta`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -254,7 +254,7 @@ public class CadastrarFrutas extends JFrame {
     private void BtnSalvarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_BtnSalvarActionPerformed
         int id = Integer.parseInt(TxtCodigo.getText());
 		String nomeFruta = TxtNome.getText();
-		int valorFruta = Integer.parseInt(TxtValor.getText());
+		Double valorFruta = Double.parseDouble(TxtValor.getText());
 		int estoqueFruta = Integer.parseInt(TxtEstoque.getText());
 
 		Fruta fruta = new Fruta(id, nomeFruta, valorFruta, estoqueFruta);

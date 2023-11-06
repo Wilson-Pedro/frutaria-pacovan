@@ -4,21 +4,29 @@
  */
 package com.mycompany.frutaria;
 
-
 public class Cliente {
-    private String nome;
-    private String cpf;
-    private String endereco;
-    private Integer numero;
+    
+	private int id;
+	private String nome;
+	private String cpf;
+	private String numero;
+	private String endereco; 
 
-    public Cliente(String nome, String cpf, String endereco, Integer numero) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.endereco = endereco;
-        this.numero = numero;
+    public Cliente(int id, String nome, String cpf, String numero, String endereco) {
+		this.id = id;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.numero = numero;
+		this.endereco = endereco;
+	}
+
+	public int getId() {
+        return id;
     }
-    
-    
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -36,6 +44,14 @@ public class Cliente {
         this.cpf = cpf;
     }
 
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
     public String getEndereco() {
         return endereco;
     }
@@ -44,12 +60,4 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public Integer getNumero() {
-        return numero;
-    }
-
-    public void setNumero(Integer numero) {
-        this.numero = numero;
-    }
-    
 }
