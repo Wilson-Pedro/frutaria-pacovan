@@ -24,6 +24,6 @@ public class ProgramFruta {
 		
 		FrutaDAO dao = new FrutaDAO();
 		dao.create(fruta3);
-		dao.delete("Pintomba");
+		dao.deletePorNome("Pintomba");
 	}
 }

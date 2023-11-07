@@ -12,6 +12,10 @@ import model.bean.Fruta;
 
 public class FrutaDAO {
 
+	
+	
+	
+	
 	public void create(Fruta fruta) {
 		
 		Connection conn = ConnectionFactory.getConnection();
@@ -34,10 +38,15 @@ public class FrutaDAO {
 		} finally {
 			ConnectionFactory.closeConnection(conn, stmt);
 		}
-		
 	}
 	
-	public void delete(String nome) {
+	
+	
+	
+	
+	
+	
+	public void deletePorNome(String nome) {
 		Connection conn = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
@@ -57,6 +66,13 @@ public class FrutaDAO {
 			ConnectionFactory.closeConnection(conn, stmt);
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	public List<Fruta> buscarTodos() {
 		Connection conn = ConnectionFactory.getConnection();
@@ -88,6 +104,11 @@ public class FrutaDAO {
 		return list;
 	}
 	
+	
+	
+	
+	
+	
 	public Fruta buscarFrutaPorNome(String nome) {
 		Connection conn = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
@@ -115,7 +136,7 @@ public class FrutaDAO {
 			throw new RuntimeException("Erro ao buscar a fruta " + e);
 			
 		} finally {
-			ConnectionFactory.closeConnection(conn, stmt);
+			ConnectionFactory.closeConnection(conn, stmt, rs);
 		}
 		
 		return fruta;
