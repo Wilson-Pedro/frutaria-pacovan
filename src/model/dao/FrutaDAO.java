@@ -11,10 +11,6 @@ import connection.ConnectionFactory;
 import model.bean.Fruta;
 
 public class FrutaDAO {
-
-	
-	
-	
 	
 	public void create(Fruta fruta) {
 		
@@ -40,12 +36,6 @@ public class FrutaDAO {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
 	public void deletePorNome(String nome) {
 		Connection conn = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
@@ -60,20 +50,13 @@ public class FrutaDAO {
 			
 			System.out.println(nome + " deleteado com Sucesso!");
 		} catch (SQLException e) {
-			throw new RuntimeException("Erro ao deletar fruta " + e);
+			throw new RuntimeException("Erro ao deletar fruta: " + e);
 			
 		} finally {
 			ConnectionFactory.closeConnection(conn, stmt);
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 	public List<Fruta> buscarTodos() {
 		Connection conn = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
@@ -95,7 +78,7 @@ public class FrutaDAO {
 				list.add(fruta);
 			}
 		} catch (SQLException e) {
-			throw new RuntimeException("Erro ao buscar todas as frutas " + e);
+			throw new RuntimeException("Erro ao buscar todas as frutas: " + e);
 			
 		} finally {
 			ConnectionFactory.closeConnection(conn, stmt, rs);
@@ -103,17 +86,12 @@ public class FrutaDAO {
 		
 		return list;
 	}
-	
-	
-	
-	
-	
-	
+
 	public Fruta buscarFrutaPorNome(String nome) {
 		Connection conn = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		Fruta fruta = null;
+		Fruta fruta = new Fruta();
 		
 		String sql = "SELECT * FROM tb_fruta WHERE nome = ?";
 		
@@ -131,7 +109,7 @@ public class FrutaDAO {
 				fruta.setEstoque(rs.getInt("estoque"));
 			}
 			
-			System.out.println("Fruta achada com Sucesso!");
+			System.out.println("Compra achada com Sucesso!");
 		} catch (SQLException e) {
 			throw new RuntimeException("Erro ao buscar a fruta " + e);
 			

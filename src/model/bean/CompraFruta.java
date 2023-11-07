@@ -51,7 +51,7 @@ public class CompraFruta {
 		this.quantidadeComprada = quantidadeComprada;
 	}
 
-	public boolean isCompraFinalizada() {
+	public boolean getCompraFinalizada() {
 		return compraFinalizada;
 	}
 
@@ -61,5 +61,19 @@ public class CompraFruta {
 	
 	public void finalizar() {
 		setCompraFinalizada(true);
+	}
+	
+	public void atualizarQuantidade(Integer quantidade) {
+		setQuantidadeComprada(this.quantidadeComprada + quantidade);
+	}
+	
+	public void atualizarValorTotal(Double valor) {
+		setValorTotal(this.valorTotal + valor);
+	}
+
+	@Override
+	public String toString() {
+		return "CompraFruta [id=" + id + ", cpf=" + cpf + ", valorTotal=" + valorTotal + ", quantidadeComprada="
+				+ quantidadeComprada + ", compraFinalizada=" + compraFinalizada + "]";
 	}
 }

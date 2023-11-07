@@ -1,5 +1,7 @@
 package principal;
 
+import java.util.List;
+
 import model.bean.Cliente;
 import model.dao.ClienteDAO;
 
@@ -9,6 +11,10 @@ public class ProgramCliente {
 		
 		Cliente cliente = new Cliente(1, "Pedro", "414.766.910-70", "(98) 2851-0097", "Rua das Goiabas");
 		ClienteDAO dao = new ClienteDAO();
-		dao.create(cliente);
+		//dao.create(cliente);
+		
+		List<Cliente> clientes = dao.buscarTodos();
+		
+		clientes.forEach(System.out::println);
 	}
 }

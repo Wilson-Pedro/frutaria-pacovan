@@ -14,7 +14,7 @@ import model.dao.FrutaDAO;
 public class ModelFrutas extends AbstractTableModel {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	FrutaDAO dao = new FrutaDAO();
 	List<Fruta> frutas = dao.buscarTodos();
 
@@ -42,7 +42,7 @@ public class ModelFrutas extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		int num = 0;
-		while(num < dao.getTotalLinhas()) {
+		while (num < dao.getTotalLinhas()) {
 			if (columnIndex == 0) {
 				return frutas.get(rowIndex).getId();
 			} else if (columnIndex == 1) {

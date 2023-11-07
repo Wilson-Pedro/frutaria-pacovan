@@ -2,8 +2,6 @@ package model.bean;
 
 import java.io.Serializable;
 
-import javax.lang.model.element.QualifiedNameable;
-
 public class Fruta implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -65,7 +63,7 @@ public class Fruta implements Serializable{
 		this.estoque = estoque;
 	}
 	
-	public void atualizarEstoque(int quantidade) {
+	public void atualizarEstoque(Integer quantidade) {
 		setEstoque(getEstoque() - quantidade);
 	}
 	

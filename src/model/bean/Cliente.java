@@ -12,6 +12,10 @@ public class Cliente {
 	private String numero;
 	private String endereco;
 	
+	public Cliente() {
+		super();
+	}
+
 	public Cliente(String nome, String cpf, String numero, String endereco) {
 		this.nome = nome;
 		this.cpf = cpf;
@@ -67,4 +71,9 @@ public class Cliente {
         this.endereco = endereco;
     }
 
+	@Override
+	public String toString() {
+		return "Cliente [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", numero=" + numero + ", endereco=" + endereco
+				+ "]";
+	}
 }
