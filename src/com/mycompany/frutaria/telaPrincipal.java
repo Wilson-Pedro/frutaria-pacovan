@@ -5,6 +5,7 @@
 package com.mycompany.frutaria;
 
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -28,10 +29,7 @@ public class telaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PainelLogo = new javax.swing.JPanel();
-        LogoPacovan = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jToolBar1 = new javax.swing.JToolBar();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuFutas = new javax.swing.JMenu();
         ItemComprar = new javax.swing.JMenuItem();
@@ -43,46 +41,10 @@ public class telaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Frutaria pacovan");
+        setMinimumSize(new java.awt.Dimension(800, 385));
         setResizable(false);
 
-        PainelLogo.setBackground(new java.awt.Color(204, 204, 204));
-        PainelLogo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        LogoPacovan.setFont(new java.awt.Font("Showcard Gothic", 2, 48)); // NOI18N
-        LogoPacovan.setForeground(new java.awt.Color(255, 153, 0));
-        LogoPacovan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LogoPacovan.setText("PACOVAN");
-
-        jLabel3.setFont(new java.awt.Font("Showcard Gothic", 2, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("FRUTARIA");
-
-        javax.swing.GroupLayout PainelLogoLayout = new javax.swing.GroupLayout(PainelLogo);
-        PainelLogo.setLayout(PainelLogoLayout);
-        PainelLogoLayout.setHorizontalGroup(
-            PainelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelLogoLayout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
-                .addComponent(LogoPacovan, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(299, 299, 299))
-            .addGroup(PainelLogoLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PainelLogoLayout.setVerticalGroup(
-            PainelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelLogoLayout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LogoPacovan, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(164, Short.MAX_VALUE))
-        );
-
-        jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
-        jToolBar1.setRollover(true);
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\victo\\OneDrive\\Documentos\\NetBeansProjects\\Frutaria\\src\\main\\java\\imagens\\logo1.png")); // NOI18N
 
         MenuFutas.setText("Comprar");
         MenuFutas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -146,19 +108,13 @@ public class telaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PainelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 867, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PainelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -231,13 +187,10 @@ public class telaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem ClienteCadas;
     private javax.swing.JMenuItem ItemComprar;
     private javax.swing.JMenuItem LoginFuncionario;
-    private javax.swing.JLabel LogoPacovan;
     private javax.swing.JMenu MenuFutas;
     private javax.swing.JMenu MenuOutro;
-    private javax.swing.JPanel PainelLogo;
     private javax.swing.JMenuItem SairTela;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

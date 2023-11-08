@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.frutaria;
-import com.mycompany.frutaria.CadastrarFrutas;
 
 import model.bean.Administrador;
 /**
@@ -28,6 +27,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         Login = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -36,22 +36,37 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         TxtSenha = new javax.swing.JPasswordField();
         BtnSalvarFuncionario = new javax.swing.JButton();
         VoltarHome = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\victo\\OneDrive\\Documentos\\NetBeansProjects\\Frutaria\\src\\main\\java\\imagens\\cliente1.png")); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("LOGIN");
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
-        Login.setFont(new java.awt.Font("SimSun", 1, 24)); // NOI18N
+        Login.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 36)); // NOI18N
+        Login.setForeground(new java.awt.Color(0, 0, 0));
         Login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Login.setText("LOGIN");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("USUÁRIO");
 
+        TxtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtUsuarioActionPerformed(evt);
+            }
+        });
+
         jlabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jlabel3.setForeground(new java.awt.Color(0, 0, 0));
         jlabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlabel3.setText("SENHA");
 
@@ -78,65 +93,53 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(jLabel1))
+                        .addComponent(jlabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(jlabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(VoltarHome)
+                                .addGap(25, 25, 25)
+                                .addComponent(BtnSalvarFuncionario))
                             .addComponent(TxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(102, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(VoltarHome)
-                .addGap(51, 51, 51)
-                .addComponent(BtnSalvarFuncionario)
-                .addGap(122, 122, 122))
+                            .addComponent(TxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(29, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(TxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jlabel3)
                 .addGap(18, 18, 18)
-                .addComponent(TxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addComponent(TxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnSalvarFuncionario)
-                    .addComponent(VoltarHome))
-                .addContainerGap(52, Short.MAX_VALUE))
+                    .addComponent(VoltarHome)
+                    .addComponent(BtnSalvarFuncionario))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 300));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\victo\\OneDrive\\Documentos\\NetBeansProjects\\Frutaria\\src\\main\\java\\imagens\\cliente1.png")); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 360));
 
         pack();
         setLocationRelativeTo(null);
@@ -146,7 +149,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         String email = TxtUsuario.getText();
         String senha = String.valueOf(TxtSenha.getPassword());
         
-        if(email.equals(adm.getNome()) && senha.equals(adm.getSenha())){
+        if(email.equals(adm.getEmail()) && senha.equals(adm.getSenha())){
            CadastrarFrutas cad = new CadastrarFrutas();
             this.dispose();
             cad.setVisible(true);
@@ -159,6 +162,10 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
        this.dispose();
        tp.setVisible(true);
     }//GEN-LAST:event_VoltarHomeActionPerformed
+
+    private void TxtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,6 +209,9 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField TxtUsuario;
     private javax.swing.JButton VoltarHome;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlabel3;
     // End of variables declaration//GEN-END:variables
