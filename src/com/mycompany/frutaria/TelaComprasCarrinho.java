@@ -4,17 +4,25 @@
  */
 package com.mycompany.frutaria;
 
+import model.bean.CompraFruta;
+import model.dao.CompraDAO;
+
 /**
  *
  * @author victor
  */
 public class TelaComprasCarrinho extends javax.swing.JFrame {
-
+	CompraDAO compraDAO = new CompraDAO();
+	CompraFruta compra = compraDAO.buscarCompraNaoFinalizada();
     /**
      * Creates new form TelaComprasCarrinho
      */
     public TelaComprasCarrinho() {
-        initComponents();
+    	initComponents();
+    	this.TxtPagamentoCarrinho.setText(String.valueOf(compra.getValorTotal()));
+    	this.TxtCpfCarrinho.setText(String.valueOf(compra.getCpf()));
+    	this.TxtTotalCarrinho.setText(String.valueOf(compra.getQuantidadeComprada()));
+
     }
 
     /**
@@ -314,9 +322,10 @@ public class TelaComprasCarrinho extends javax.swing.JFrame {
     }//GEN-LAST:event_TxtFreteCarrinhoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       TelaFinal tf = new TelaFinal();
-       this.dispose();
-       tf.setVisible(true);
+    	compraDAO.finalizarCompra(compra.getCpf());
+    	TelaFinal tf = new TelaFinal();
+    	this.dispose();
+    	tf.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -327,6 +336,7 @@ public class TelaComprasCarrinho extends javax.swing.JFrame {
         telaPrincipal tp = new telaPrincipal();
         this.dispose();
         tp.setVisible(true);
+        
     }//GEN-LAST:event_BtnHomeActionPerformed
 
     /**
