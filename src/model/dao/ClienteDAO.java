@@ -9,6 +9,7 @@ import java.util.List;
 
 import connection.ConnectionFactory;
 import model.bean.Cliente;
+import model.bean.Fruta;
 
 public class ClienteDAO {
 	
@@ -28,7 +29,7 @@ public class ClienteDAO {
 			
 			stmt.executeUpdate();
 			
-			System.out.println("Salvo com Sucesso!");
+			System.out.println("Cliente salvo com Sucesso!");
 		} catch (SQLException e) {
 			throw new RuntimeException("Erro ao salvar: " + e);
 			
@@ -66,5 +67,81 @@ public class ClienteDAO {
 		}
 		
 		return list;
+	}
+    
+    public Cliente buscarClientePorId(int id) {
+    	Connection conn = ConnectionFactory.getConnection();
+    	PreparedStatement stmt = null;
+    	ResultSet rs = null;
+    	Cliente cliente = new Cliente();
+    	
+    	String sql = "SELECT * FROM tb_cliente WHERE id = ?";
+    	
+    	try {
+    		stmt = conn.prepareStatement(sql);
+    		stmt.setInt(1, id);
+    		
+    		rs = stmt.executeQuery();
+    		
+    		if(rs.next()) {
+    			cliente.setId(rs.getInt("id"));
+    			cliente.setNome(rs.getString("nome"));
+    			cliente.setCpf(rs.getString("cpf"));
+    			cliente.setNumero(rs.getString("numero"));
+    			cliente.setEndereco(rs.getString("endereco"));
+    		}
+    		
+    	} catch (SQLException e) {
+    		throw new RuntimeException("Erro ao buscar cliente: " + e);
+    	} finally {
+    		ConnectionFactory.closeConnection(conn, stmt);
+    	}
+    	return cliente;
+    }
+    
+    public void update(Cliente cliente, int id) {
+		Connection conn = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		String sql = "UPDATE tb_cliente SET nome = ?, cpf = ?, numero = ?, endereco = ? WHERE id = ?";
+		
+		try {
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, cliente.getNome());
+			stmt.setString(2, cliente.getCpf());
+			stmt.setString(3, cliente.getEndereco());
+			stmt.setString(4, cliente.getNome());
+			stmt.setInt(5, id);
+			
+			stmt.executeUpdate();
+			
+			System.out.println("Cliente atualizado com sucesso com Sucesso!");
+		} catch (SQLException e) {
+			throw new RuntimeException("Erro ao salvar " + e);
+			
+		} finally {
+			ConnectionFactory.closeConnection(conn, stmt);
+		}	
+	}
+    
+    public void deletePorId(int id) {
+		Connection conn = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		String sql = "DELETE FROM tb_cliente WHERE id = ?";
+		
+		try {
+			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			
+			stmt.executeUpdate();
+			
+			System.out.println("Cliente deletado com sucesso!");
+		} catch (SQLException e) {
+			throw new RuntimeException("Erro ao deletar cliente: " + e);
+			
+		} finally {
+			ConnectionFactory.closeConnection(conn, stmt);
+		}
 	}
 }

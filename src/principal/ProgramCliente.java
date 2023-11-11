@@ -8,13 +8,20 @@ import model.dao.ClienteDAO;
 public class ProgramCliente {
 
 	public static void main(String[] args) {
-		
-		Cliente cliente = new Cliente(1, "Pedro", "414.766.910-70", "(98) 2851-0097", "Rua das Goiabas");
 		ClienteDAO dao = new ClienteDAO();
+		
+		Cliente cliente = new Cliente("Julio", "914.711.610-20", "(98) 3851-1099", "Rua das Melancias");
 		//dao.create(cliente);
 		
+		System.out.println();
 		List<Cliente> clientes = dao.buscarTodos();
-		
 		clientes.forEach(System.out::println);
+		
+		System.out.println();
+		//dao.deletePorId(5);
+		Cliente cli = dao.buscarClientePorId(6);
+		System.out.println(cli);
+		
+		dao.update(cliente, 6);
 	}
 }

@@ -7,6 +7,8 @@ public class ProgramFruta {
 
 	public static void main(String[] args) {
 		
+		FrutaDAO dao = new FrutaDAO();
+		
 		Fruta fruta = new Fruta();
 		fruta.setNome("Banana");
 		fruta.setValor(2.0);
@@ -17,13 +19,14 @@ public class ProgramFruta {
 		fruta2.setValor(3.0);
 		fruta2.setEstoque(60);
 		
-		Fruta fruta3 = new Fruta();
-		fruta3.setNome("Pintomba");
-		fruta3.setValor(1.0);
-		fruta3.setEstoque(20);
+		Fruta pintomba = new Fruta();
+		pintomba.setNome("Pintomba");
+		pintomba.setValor(1.0);
+		pintomba.setEstoque(40);
 		
-		FrutaDAO dao = new FrutaDAO();
-		dao.create(fruta3);
-		dao.deletePorNome("Pintomba");
+//		dao.create(pintomba);
+//		dao.update(pintomba);
+//		dao.update(pintomba, 10);
+//		dao.deletePorNome("Pintomba");
 	}
 }

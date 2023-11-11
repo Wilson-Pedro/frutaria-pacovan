@@ -61,6 +61,27 @@ public class CompraDAO {
 		}
 	}
 	
+	public void deletePorId(int id) {
+		Connection conn = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		String sql = "DELETE FROM tb_compraFruta WHERE id = ?";
+		
+		try {
+			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			
+			stmt.executeUpdate();
+			
+			System.out.println("Compra deletado com Sucesso!");
+		} catch (SQLException e) {
+			throw new RuntimeException("Erro ao deletar fruta: " + e);
+			
+		} finally {
+			ConnectionFactory.closeConnection(conn, stmt);
+		}
+	}
+	
 	public void finalizarCompra(String cpf) {
 
 		Connection conn = ConnectionFactory.getConnection();
