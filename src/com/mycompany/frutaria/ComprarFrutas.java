@@ -286,7 +286,7 @@ public class ComprarFrutas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
      private void limparCampos() {
-    	TxtCpf.setText("");
+    	TxtNome.setText("");
         TxtQuantComprar.setText("");
         TxtValorComprar.setText("");
     }

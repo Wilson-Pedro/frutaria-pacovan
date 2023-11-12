@@ -12,7 +12,7 @@ import model.dao.CompraDAO;
  * @author victor
  */
 public class TelaComprasCarrinho extends javax.swing.JFrame {
-        CompraDAO compraDAO = new CompraDAO();
+    CompraDAO compraDAO = new CompraDAO();
 	CompraFruta compra = compraDAO.buscarCompraNaoFinalizada();
     /**
      * Creates new form TelaComprasCarrinho
