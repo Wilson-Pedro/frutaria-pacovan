@@ -311,8 +311,8 @@ public class TelaComprasCarrinho extends javax.swing.JFrame {
     private void BtnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFinalizarActionPerformed
         compraDAO.finalizarCompra(compra.getCpf());
         TelaFinal tf = new TelaFinal();
-       this.dispose();
-       tf.setVisible(true);
+        this.dispose();
+        tf.setVisible(true);
     }//GEN-LAST:event_BtnFinalizarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
