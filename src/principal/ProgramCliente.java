@@ -12,7 +12,11 @@ public class ProgramCliente {
 		
 		Cliente cliente = new Cliente
 				("Julio", "914.711.610-20", "Rua das Melancias", "Calhau", "73808-165", "(98) 3851-1099");
-		dao.create(cliente);
+		//dao.create(cliente);
+		
+		System.out.println("Achar clinete por cpf: " + cliente.getCpf());
+		Cliente clinfFound = dao.buscarClientePorCpf(cliente.getCpf());
+		System.out.println(clinfFound);
 		
 //		System.out.println();
 //		List<Cliente> clientes = dao.buscarTodos();

@@ -113,7 +113,7 @@ public class ClienteDAO {
     	ResultSet rs = null;
     	Cliente cliente = new Cliente();
     	
-    	String sql = "SELECT * FROM tb_cliente cpf id = ?";
+    	String sql = "SELECT * FROM tb_cliente WHERE cpf = ?";
     	
     	try {
     		stmt = conn.prepareStatement(sql);
