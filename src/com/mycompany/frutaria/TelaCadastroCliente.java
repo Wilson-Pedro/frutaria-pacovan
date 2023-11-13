@@ -301,6 +301,8 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 		   
 		Cliente cliente = new Cliente(nome, cpf, rua, bairro, cep, telefone);
 		dao.update(cliente);
+		
+		LimparCampos();
     }
 
     private void BtnDeletarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeletarClienteActionPerformed

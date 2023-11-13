@@ -235,11 +235,11 @@ public class ComprarFrutas extends javax.swing.JFrame {
                 String nome = TxtNome.getText();
 		String cpf = TxtCpf.getText();
 		Integer quantidade = Integer.parseInt(TxtQuantComprar.getText());
-		Double valor = Double.parseDouble(TxtValorComprar.getText());
 
 		FrutaDAO dao = new FrutaDAO();
 
 		Fruta fruta = dao.buscarFrutaPorNome(nome);
+		Double valor = fruta.getValor();
 		fruta.atualizarEstoque(quantidade);
 
 		dao.update(fruta);

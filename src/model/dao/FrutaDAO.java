@@ -91,7 +91,7 @@ public class FrutaDAO {
 		Connection conn = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		Fruta fruta = new Fruta();
+		Fruta fruta = new Fruta("Não encontrado", 0.0, 0);
 
 		String sql = "SELECT * FROM tb_fruta WHERE nome = ?";
 
@@ -109,9 +109,9 @@ public class FrutaDAO {
 				fruta.setEstoque(rs.getInt("estoque"));
 			}
 
-			System.out.println("Compra achada com Sucesso!");
 		} catch (SQLException e) {
-			throw new RuntimeException("Erro ao buscar a fruta " + e);
+			throw new RuntimeException("Erro ao buscar " + nome
+					+ "Erro: " + e);
 
 		} finally {
 			ConnectionFactory.closeConnection(conn, stmt, rs);

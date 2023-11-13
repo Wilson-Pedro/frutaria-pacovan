@@ -77,7 +77,8 @@ public class ClienteDAO {
     	Connection conn = ConnectionFactory.getConnection();
     	PreparedStatement stmt = null;
     	ResultSet rs = null;
-    	Cliente cliente = new Cliente();
+    	Cliente cliente = new Cliente("Não encontrado", "Não encontrado", "Não encontrado", 
+    			"Não encontrado", "Não encontrado", "Não encontrado");
     	
     	String sql = "SELECT * FROM tb_cliente WHERE id = ?";
     	
@@ -97,7 +98,6 @@ public class ClienteDAO {
 				cliente.setTelefone(rs.getString("telefone"));
     		}
     		
-    		System.out.println("Cliente achado apartir do ID com sucesso!");
     	} catch (SQLException e) {
     		throw new RuntimeException("Erro ao buscar cliente apartit do ID: " + id
     				+ "error: "+ e);
