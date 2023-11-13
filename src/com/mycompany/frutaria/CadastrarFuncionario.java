@@ -39,7 +39,11 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
+<<<<<<< HEAD
         //jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\victo\\OneDrive\\Documentos\\NetBeansProjects\\Frutaria\\src\\main\\java\\imagens\\Cliente2.PNG")); // NOI18N
+=======
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\willl\\OneDrive\\Imagens\\projeto-java\\login\\Cliente2.PNG")); // NOI18N
+>>>>>>> 0e480f2e3e950311b7740179e7f876e9235c3a65
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");

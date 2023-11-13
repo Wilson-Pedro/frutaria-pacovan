@@ -111,7 +111,8 @@ public class ClienteDAO {
     	Connection conn = ConnectionFactory.getConnection();
     	PreparedStatement stmt = null;
     	ResultSet rs = null;
-    	Cliente cliente = new Cliente();
+    	Cliente cliente = new Cliente("Não encontrado", "Não encontrado", "Não encontrado", 
+    			"Não encontrado", "Não encontrado", "Não encontrado");
     	
     	String sql = "SELECT * FROM tb_cliente WHERE cpf = ?";
     	
@@ -137,6 +138,32 @@ public class ClienteDAO {
     		ConnectionFactory.closeConnection(conn, stmt);
     	}
     	return cliente;
+    }
+    
+    public boolean existeClienteComCpf(String cpf) {
+    	Connection conn = ConnectionFactory.getConnection();
+    	PreparedStatement stmt = null;
+    	ResultSet rs = null;
+    	
+    	String sql = "SELECT * FROM tb_cliente WHERE cpf = ?";
+    	
+    	try {
+    		stmt = conn.prepareStatement(sql);
+    		stmt.setString(1, cpf);
+    		
+    		rs = stmt.executeQuery();
+    		
+    		if(rs.next()) {
+    			return true;
+    		}
+    		
+    	} catch (SQLException e) {
+    		throw new RuntimeException("Erro ao buscar cliente apartit do CPF: " + cpf
+    				+"erro: "+ e);
+    	} finally {
+    		ConnectionFactory.closeConnection(conn, stmt);
+    	}
+    	return false;
     }
     
     public void update(Cliente cliente, int id) {

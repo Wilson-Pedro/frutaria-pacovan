@@ -27,6 +27,8 @@ public class ProgramCliente {
 //		Cliente cli = dao.buscarClientePorId(6);
 //		System.out.println(cli);
 //		
-		dao.update(cliente);
+//		dao.update(cliente);
+		System.out.println();
+		System.out.println(dao.existeClienteComCpf("914.711.610-20"));
 	}
 }
