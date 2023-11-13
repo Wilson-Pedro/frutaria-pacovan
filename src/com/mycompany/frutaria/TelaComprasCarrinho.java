@@ -12,7 +12,7 @@ import model.dao.CompraDAO;
  * @author victor
  */
 public class TelaComprasCarrinho extends javax.swing.JFrame {
-    CompraDAO compraDAO = new CompraDAO();
+        CompraDAO compraDAO = new CompraDAO();
 	CompraFruta compra = compraDAO.buscarCompraNaoFinalizada();
     /**
      * Creates new form TelaComprasCarrinho
@@ -50,6 +50,7 @@ public class TelaComprasCarrinho extends javax.swing.JFrame {
         BtnFinalizar = new javax.swing.JButton();
         TxtTotalCarrinho = new javax.swing.JTextField();
         TxtPagamentoCarrinho = new javax.swing.JTextField();
+        BtnVoltar = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
         BtnHome = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -160,8 +161,9 @@ public class TelaComprasCarrinho extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Pagamento Total:");
 
-        BtnFinalizar.setBackground(new java.awt.Color(51, 0, 255));
+        BtnFinalizar.setBackground(new java.awt.Color(0, 0, 204));
         BtnFinalizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnFinalizar.setForeground(new java.awt.Color(255, 255, 255));
         BtnFinalizar.setText("Finalizar");
         BtnFinalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +183,16 @@ public class TelaComprasCarrinho extends javax.swing.JFrame {
             }
         });
 
+        BtnVoltar.setBackground(new java.awt.Color(0, 0, 204));
+        BtnVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnVoltar.setText("Voltar");
+        BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -194,6 +206,8 @@ public class TelaComprasCarrinho extends javax.swing.JFrame {
                         .addComponent(TxtTotalCarrinho, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BtnVoltar)
+                        .addGap(18, 18, 18)
                         .addComponent(BtnFinalizar))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -213,7 +227,9 @@ public class TelaComprasCarrinho extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(TxtPagamentoCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(BtnFinalizar)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnFinalizar)
+                    .addComponent(BtnVoltar))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -311,8 +327,8 @@ public class TelaComprasCarrinho extends javax.swing.JFrame {
     private void BtnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFinalizarActionPerformed
         compraDAO.finalizarCompra(compra.getCpf());
         TelaFinal tf = new TelaFinal();
-        this.dispose();
-        tf.setVisible(true);
+       this.dispose();
+       tf.setVisible(true);
     }//GEN-LAST:event_BtnFinalizarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -324,6 +340,12 @@ public class TelaComprasCarrinho extends javax.swing.JFrame {
         this.dispose();
         tp.setVisible(true);
     }//GEN-LAST:event_BtnHomeActionPerformed
+
+    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
+       ComprarFrutas cf = new ComprarFrutas();
+       this.dispose();
+       cf.setVisible(true);
+    }//GEN-LAST:event_BtnVoltarActionPerformed
     public void addData(String codigo, int estoque) {
         
        
@@ -366,6 +388,7 @@ public class TelaComprasCarrinho extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnFinalizar;
     private javax.swing.JButton BtnHome;
+    private javax.swing.JButton BtnVoltar;
     private javax.swing.JTable TblCarrinho;
     private javax.swing.JTextField TxtCpfCarrinho;
     private javax.swing.JTextField TxtEndereçoDeEntrega;
