@@ -10,8 +10,11 @@ import javax.swing.JOptionPane;
 
 public class TelaCadastroCliente extends javax.swing.JFrame {
 	
+	ClienteDAO dao = new ClienteDAO();
+	
     public TelaCadastroCliente() {
         initComponents();
+        TxtBuscar.setText("cpf");
     }
 
     @SuppressWarnings("unchecked")
@@ -265,8 +268,6 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     private void BtnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {
     	
-    	ClienteDAO dao = new ClienteDAO();
-    	
 		String nome = TxtNome.getText();
 		String cpf = TxtCpf.getText();
 		String rua = TxtRua.getText();
@@ -285,31 +286,43 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     public void LimparCampos(){
     	TxtNome.setText("");
     	TxtCpf.setText("");
+    	TxtBairro.setText("");
     	TxtNumero.setText("");
     	TxtRua.setText("");
+    	TxtCep.setText("");
     }
     private void BtnAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtualizarClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnAtualizarClienteActionPerformed
+    	String nome = TxtNome.getText();
+		String cpf = TxtCpf.getText();
+		String rua = TxtRua.getText();
+		String bairro = TxtBairro.getText();
+		String cep = TxtCep.getText();
+		String telefone = TxtNumero.getText();
+		   
+		Cliente cliente = new Cliente(nome, cpf, rua, bairro, cep, telefone);
+		dao.update(cliente);
+    }
 
     private void BtnDeletarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeletarClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnDeletarClienteActionPerformed
+    	String cpf = TxtCpf.getText();
+    	dao.deletePorCpf(cpf);
+    	
+    	LimparCampos();
+    	TxtBuscar.setText("");
+    }
 
     private void TxtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtBuscarActionPerformed
    
     }
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
-    	ClienteDAO dao = new ClienteDAO();
-    	
     	String cpf = TxtBuscar.getText();
     	Cliente cliente = dao.buscarClientePorCpf(cpf);
     	
     	TxtNome.setText(cliente.getNome());
     	TxtCpf.setText(cliente.getCpf());
     	TxtRua.setText(cliente.getRua());
-    	TxtBairro.setText(cliente.getRua());
+    	TxtBairro.setText(cliente.getBairro());
     	TxtCep.setText(cliente.getCep());
     	TxtNumero.setText(cliente.getTelefone());
     }

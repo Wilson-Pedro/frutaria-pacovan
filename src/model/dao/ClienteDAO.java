@@ -130,7 +130,6 @@ public class ClienteDAO {
 				cliente.setCep(rs.getString("cep"));
 				cliente.setTelefone(rs.getString("telefone"));
     		}
-    		System.out.println("Cliente achado apartir do CPF com sucesso!");
     	} catch (SQLException e) {
     		throw new RuntimeException("Erro ao buscar cliente apartit do CPF: " + cpf
     				+"erro: "+ e);
@@ -167,6 +166,32 @@ public class ClienteDAO {
 		}	
 	}
     
+    public void update(Cliente cliente) {
+		Connection conn = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		String sql = "UPDATE tb_cliente SET nome = ?, rua = ?, bairro = ?, cep = ?, telefone = ? WHERE cpf = ?";
+		
+		try {
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, cliente.getNome());
+			stmt.setString(2, cliente.getRua());
+			stmt.setString(3, cliente.getBairro());
+			stmt.setString(4,  cliente.getCep());
+			stmt.setString(5,  cliente.getTelefone());
+			stmt.setString(6, cliente.getCpf());
+			
+			stmt.executeUpdate();
+			
+			System.out.println("Cliente atualizado com sucesso com Sucesso!");
+		} catch (SQLException e) {
+			throw new RuntimeException("Erro ao salvar " + e);
+			
+		} finally {
+			ConnectionFactory.closeConnection(conn, stmt);
+		}	
+	}
+    
     public void deletePorId(int id) {
 		Connection conn = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
@@ -176,6 +201,27 @@ public class ClienteDAO {
 		try {
 			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, id);
+			
+			stmt.executeUpdate();
+			
+			System.out.println("Cliente deletado com sucesso!");
+		} catch (SQLException e) {
+			throw new RuntimeException("Erro ao deletar cliente: " + e);
+			
+		} finally {
+			ConnectionFactory.closeConnection(conn, stmt);
+		}
+	}
+    
+    public void deletePorCpf(String cpf) {
+		Connection conn = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		String sql = "DELETE FROM tb_cliente WHERE cpf = ?";
+		
+		try {
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, cpf);
 			
 			stmt.executeUpdate();
 			

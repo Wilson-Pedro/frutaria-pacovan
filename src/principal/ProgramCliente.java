@@ -11,7 +11,7 @@ public class ProgramCliente {
 		ClienteDAO dao = new ClienteDAO();
 		
 		Cliente cliente = new Cliente
-				("Julio", "914.711.610-20", "Rua das Melancias", "Calhau", "73808-165", "(98) 3851-1099");
+				("Julio", "914.711.610-20", "Rua das Goiabas", "Calhau", "73808-165", "(98) 3851-1099");
 		//dao.create(cliente);
 		
 		System.out.println("Achar clinete por cpf: " + cliente.getCpf());
@@ -27,6 +27,6 @@ public class ProgramCliente {
 //		Cliente cli = dao.buscarClientePorId(6);
 //		System.out.println(cli);
 //		
-//		dao.update(cliente, 6);
+		dao.update(cliente);
 	}
 }
