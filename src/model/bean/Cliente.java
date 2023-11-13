@@ -9,71 +9,76 @@ public class Cliente {
 	private int id;
 	private String nome;
 	private String cpf;
-	private String numero;
-	private String endereco;
+	private String rua;
+	private String bairro;
+	private String cep;
+	private String telefone;
 	
 	public Cliente() {
-		super();
 	}
 
-	public Cliente(String nome, String cpf, String numero, String endereco) {
+	public Cliente(String nome, String cpf, String rua, String bairro, String cep, String telefone) {
 		this.nome = nome;
 		this.cpf = cpf;
-		this.numero = numero;
-		this.endereco = endereco;
-	}
-
-    public Cliente(int id, String nome, String cpf, String numero, String endereco) {
-		this.id = id;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.numero = numero;
-		this.endereco = endereco;
+		this.rua = rua;
+		this.bairro = bairro;
+		this.cep = cep;
+		this.telefone = telefone;
 	}
 
 	public int getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public String getCpf() {
-        return cpf;
-    }
+	public String getCpf() {
+		return cpf;
+	}
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
-    public String getNumero() {
-        return numero;
-    }
+	public String getRua() {
+		return rua;
+	}
 
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
 
-    public String getEndereco() {
-        return endereco;
-    }
+	public String getBairro() {
+		return bairro;
+	}
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
 
-	@Override
-	public String toString() {
-		return "Cliente [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", numero=" + numero + ", endereco=" + endereco
-				+ "]";
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 }

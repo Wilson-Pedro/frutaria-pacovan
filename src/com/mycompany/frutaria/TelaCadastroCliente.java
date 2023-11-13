@@ -13,10 +13,9 @@ import javax.swing.JOptionPane;
  * @author victor
  */
 public class TelaCadastroCliente extends javax.swing.JFrame {
-
-    /**
-     * Creates new form TelaCadastroCliente
-     */
+	
+	ClienteDAO dao = new ClienteDAO();
+	
     public TelaCadastroCliente() {
         initComponents();
     }
@@ -278,11 +277,12 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private void BtnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarClienteActionPerformed
        String nome = TxtNome.getText();
        String cpf = TxtCpf.getText();
-       String numero = TxtNumero.getText();
-       String endereco = TxtRua.getText();
+       String rua = TxtRua.getText();
+       String bairro = TxtBairro.getText();
+       String cep = TxtCep.getText();
+       String telefone = TxtNumero.getText();
        
-       Cliente cliente = new Cliente(nome, cpf, numero, endereco);
-       ClienteDAO dao = new ClienteDAO();
+       Cliente cliente = new Cliente(nome, cpf, rua, bairro, cep, telefone);
        dao.create(cliente);
        
        LimparCampos();
@@ -305,8 +305,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnDeletarClienteActionPerformed
 
     private void TxtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtBuscarActionPerformed
+    	String cpf = TxtCpf.getText();
+    	Cliente cliente = dao.buscarClientePorId(1);
+    }
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
         // TODO add your handling code here:

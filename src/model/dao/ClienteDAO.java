@@ -18,14 +18,16 @@ public class ClienteDAO {
 		Connection conn = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
-		String sql = "INSERT INTO tb_cliente (nome, cpf, numero, endereco) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO tb_cliente (nome, cpf, rua, bairro, cep, telefone) VALUES (?, ?, ?, ?, ?, ?)";
 		
 		try {
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getCpf());
-			stmt.setString(3, cliente.getNumero());
-			stmt.setString(4, cliente.getEndereco());
+			stmt.setString(3, cliente.getRua());
+			stmt.setString(4, cliente.getBairro());
+			stmt.setString(5, cliente.getCep());
+			stmt.setString(6, cliente.getTelefone());
 			
 			stmt.executeUpdate();
 			
@@ -54,8 +56,10 @@ public class ClienteDAO {
 				cliente.setId(rs.getInt("id"));
 				cliente.setNome(rs.getString("nome"));
 				cliente.setCpf(rs.getString("cpf"));
-				cliente.setNumero(rs.getString("numero"));
-				cliente.setEndereco(rs.getString("endereco"));
+				cliente.setRua(rs.getString("rua"));
+				cliente.setBairro(rs.getString("bairro"));
+				cliente.setCep(rs.getString("cep"));
+				cliente.setTelefone(rs.getString("telefone"));
 				
 				list.add(cliente);
 			}
@@ -85,14 +89,51 @@ public class ClienteDAO {
     		
     		if(rs.next()) {
     			cliente.setId(rs.getInt("id"));
-    			cliente.setNome(rs.getString("nome"));
-    			cliente.setCpf(rs.getString("cpf"));
-    			cliente.setNumero(rs.getString("numero"));
-    			cliente.setEndereco(rs.getString("endereco"));
+				cliente.setNome(rs.getString("nome"));
+				cliente.setCpf(rs.getString("cpf"));
+				cliente.setRua(rs.getString("rua"));
+				cliente.setBairro(rs.getString("bairro"));
+				cliente.setCep(rs.getString("cep"));
+				cliente.setTelefone(rs.getString("telefone"));
     		}
     		
+    		System.out.println("Cliente achado apartir do ID com sucesso!");
     	} catch (SQLException e) {
-    		throw new RuntimeException("Erro ao buscar cliente: " + e);
+    		throw new RuntimeException("Erro ao buscar cliente apartit do ID: " + id
+    				+ "error: "+ e);
+    	} finally {
+    		ConnectionFactory.closeConnection(conn, stmt);
+    	}
+    	return cliente;
+    }
+    
+    public Cliente buscarClientePorCpf(String cpf) {
+    	Connection conn = ConnectionFactory.getConnection();
+    	PreparedStatement stmt = null;
+    	ResultSet rs = null;
+    	Cliente cliente = new Cliente();
+    	
+    	String sql = "SELECT * FROM tb_cliente cpf id = ?";
+    	
+    	try {
+    		stmt = conn.prepareStatement(sql);
+    		stmt.setString(1, cpf);
+    		
+    		rs = stmt.executeQuery();
+    		
+    		if(rs.next()) {
+    			cliente.setId(rs.getInt("id"));
+				cliente.setNome(rs.getString("nome"));
+				cliente.setCpf(rs.getString("cpf"));
+				cliente.setRua(rs.getString("rua"));
+				cliente.setBairro(rs.getString("bairro"));
+				cliente.setCep(rs.getString("cep"));
+				cliente.setTelefone(rs.getString("telefone"));
+    		}
+    		System.out.println("Cliente achado apartir do CPF com sucesso!");
+    	} catch (SQLException e) {
+    		throw new RuntimeException("Erro ao buscar cliente apartit do CPF: " + cpf
+    				+"erro: "+ e);
     	} finally {
     		ConnectionFactory.closeConnection(conn, stmt);
     	}
@@ -103,15 +144,17 @@ public class ClienteDAO {
 		Connection conn = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
-		String sql = "UPDATE tb_cliente SET nome = ?, cpf = ?, numero = ?, endereco = ? WHERE id = ?";
+		String sql = "UPDATE tb_cliente SET nome = ?, cpf = ?, rua = ?, bairro = ?, cep = ?, telefone = ? WHERE id = ?";
 		
 		try {
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getCpf());
-			stmt.setString(3, cliente.getEndereco());
-			stmt.setString(4, cliente.getNome());
-			stmt.setInt(5, id);
+			stmt.setString(3, cliente.getRua());
+			stmt.setString(4, cliente.getBairro());
+			stmt.setString(5,  cliente.getCep());
+			stmt.setString(6,  cliente.getTelefone());
+			stmt.setInt(7, id);
 			
 			stmt.executeUpdate();
 			
