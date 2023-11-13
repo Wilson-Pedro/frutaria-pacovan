@@ -111,7 +111,8 @@ public class ClienteDAO {
     	Connection conn = ConnectionFactory.getConnection();
     	PreparedStatement stmt = null;
     	ResultSet rs = null;
-    	Cliente cliente = new Cliente();
+    	Cliente cliente = new Cliente("Não encontrado", "Não encontrado", "Não encontrado", 
+    			"Não encontrado", "Não encontrado", "Não encontrado");
     	
     	String sql = "SELECT * FROM tb_cliente WHERE cpf = ?";
     	

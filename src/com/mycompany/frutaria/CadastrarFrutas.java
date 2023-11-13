@@ -325,8 +325,16 @@ public class CadastrarFrutas extends javax.swing.JFrame {
 	}// GEN-LAST:event_jButton1ActionPerformed
 
 	private void BtnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BtnAtualizarActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_BtnAtualizarActionPerformed
+		String nomeFruta = TxtBuscarFrutas.getText();
+		Double valorFruta = Double.parseDouble(TxtValor.getText());
+		int estoqueFruta = Integer.parseInt(TxtEstoque.getText());
+		
+		Fruta fruta = new Fruta(nomeFruta, valorFruta, estoqueFruta);
+		
+		dao.update(fruta);
+		
+		LimparCampos();
+	}
 
 	private void TxtNome1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TxtNome1ActionPerformed
 		// TODO add your handling code here:
@@ -343,6 +351,7 @@ public class CadastrarFrutas extends javax.swing.JFrame {
 
 	public void LimparCampos() {
 		TxtBuscarFrutas.setText("");
+		TxtNome1.setText("");
 		TxtValor.setText("");
 		TxtEstoque.setText("");
 	}
