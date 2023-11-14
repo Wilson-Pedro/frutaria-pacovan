@@ -41,7 +41,7 @@ public class TelaFinal extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("\t\n\n\n\t          COMPRAS REALIZADAS COM SUCESSO\n\t          SUAS FRUTAS CHEGARÃO EM ATÉ 97 \n\t          DIAS UTÉIS :) \n\n\t          POR FAVOR ESPERE!!!!\n\n               \n\n\t\t\t         TAMO AFIM DE UMA NOTA 10 ARLISON :)\n");
+        jTextArea1.setText("\t\n\n\n\t          COMPRAS REALIZADAS COM SUCESSO\n\t          SUAS FRUTAS CHEGARÃO EM ATÉ 97 \n\t          DIAS ÚTEIS :) \n\t          TÁ COM FOME NÃO SE ESQUEÇAS, FRUTARIA PACOVAN TODAS AS TERÇAS\n\n\t          POR FAVOR ESPERE!!!!\n\n               \n\n\t\t\t         TAMO AFIM DE UMA NOTA 10 ARLISON :)\n");
         jScrollPane1.setViewportView(jTextArea1);
 
         jToolBar1.setRollover(true);
@@ -61,7 +61,7 @@ public class TelaFinal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
             .addComponent(jScrollPane1)
         );
         jPanel1Layout.setVerticalGroup(
