@@ -297,7 +297,7 @@ public class CadastrarFrutas extends javax.swing.JFrame {
 	}// GEN-LAST:event_TxtValorActionPerformed
 
 	private void BtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BtnSalvarActionPerformed
-		String nomeFruta = TxtBuscarFrutas.getText();
+		String nomeFruta = TxtNome1.getText();
 		Double valorFruta = Double.parseDouble(TxtValor.getText());
 		int estoqueFruta = Integer.parseInt(TxtEstoque.getText());
 

@@ -18,7 +18,7 @@ public class ModelFrutas extends AbstractTableModel {
 	FrutaDAO dao = new FrutaDAO();
 	List<Fruta> frutas = dao.buscarTodos();
 
-	String[] colunas = { "codigo", "nome", "valor", "estoque" };
+	String[] colunas = {"nome", "valor", "estoque" };
 
 	@Override
 	public int getRowCount() {
@@ -44,10 +44,8 @@ public class ModelFrutas extends AbstractTableModel {
 		int num = 0;
 		while (num < dao.getTotalLinhas()) {
 			if (columnIndex == 0) {
-				return frutas.get(rowIndex).getId();
-			} else if (columnIndex == 1) {
 				return frutas.get(rowIndex).getNome();
-			} else if (columnIndex == 2) {
+			} else if (columnIndex == 1) {
 				return frutas.get(rowIndex).getValor();
 			} else {
 				return frutas.get(rowIndex).getEstoque();

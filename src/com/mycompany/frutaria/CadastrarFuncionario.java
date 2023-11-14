@@ -4,6 +4,7 @@
  */
 package com.mycompany.frutaria;
 
+import javax.swing.JOptionPane;
 import model.bean.Administrador;
 /**
  *
@@ -159,7 +160,10 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
     private void BtnSalvarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarFuncionarioActionPerformed
         String email = TxtUsuario.getText();
         String senha = String.valueOf(TxtSenha.getPassword());
-        
+        CadastrarFrutas cf = new CadastrarFrutas();
+        this.dispose();
+        cf.setVisible(true);
+        JOptionPane.showMessageDialog(null, "Logado com sucesso");
         if(email.equals(adm.getEmail()) && senha.equals(adm.getSenha())){
            CadastrarFrutas cad = new CadastrarFrutas();
             this.dispose();

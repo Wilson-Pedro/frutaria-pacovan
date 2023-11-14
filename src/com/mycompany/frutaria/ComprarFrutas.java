@@ -1,11 +1,12 @@
 package com.mycompany.frutaria;
 
 import model.bean.CompraFruta;
-import model.bean.Fruta;
+
 import model.dao.ClienteDAO;
 import model.dao.CompraDAO;
 import model.dao.FrutaDAO;
 import javax.swing.JOptionPane;
+import model.bean.Fruta;
 
 /**
  *
@@ -243,10 +244,19 @@ public class ComprarFrutas extends javax.swing.JFrame {
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
 		String nome = TxtNome.getText();
 		String cpf = TxtCpf.getText();
-		if(clienteDAO.existeClienteComCpf(cpf)) {
-			Integer quantidade = Integer.parseInt(TxtQuantComprar.getText());
-
-			Fruta fruta = frutaDAO.buscarFrutaPorNome(nome);
+		Integer quantidade = Integer.parseInt(TxtQuantComprar.getText());
+		Fruta fruta = frutaDAO.buscarFrutaPorNome(nome);
+		
+		if (!clienteDAO.existeClienteComCpf(cpf)) {
+			
+			JOptionPane.showMessageDialog(null, "Você precisa se cadastrar antes de fazer a compra!");
+			limparCampos();
+			TxtCpf.setText("");
+			
+		} else if(quantidade > fruta.getEstoque()) {
+			JOptionPane.showMessageDialog(null, "Você não pode comprar um quantidade superior ao estoque");
+		
+		} else if(clienteDAO.existeClienteComCpf(cpf)) {
 			Double valor = fruta.getValor();
 			fruta.atualizarEstoque(quantidade);
 
@@ -271,12 +281,9 @@ public class ComprarFrutas extends javax.swing.JFrame {
 				compra.setValorTotal(subTotal);
 				compraDao.create(compra);
 			}
-		} else {
-			JOptionPane.showMessageDialog(null, "Você precisa se cadastrar antes de fazer a compra!");
-			TxtCpf.setText("");
-		}
 
-		limparCampos();
+			limparCampos();
+		}
 	}// GEN-LAST:event_jButton1ActionPerformed
 
 	private void limparCampos() {
