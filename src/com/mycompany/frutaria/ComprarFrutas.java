@@ -248,7 +248,7 @@ public class ComprarFrutas extends javax.swing.JFrame {
 		String nome = TxtNome.getText();
 		String cpf = TxtCpf.getText();
 		Integer quantidade = Integer.parseInt(TxtQuantComprar.getText());
-<<<<<<< HEAD
+
 		//Double valor = Double.parseDouble(TxtValorComprar.getText());
 
 		FrutaDAO dao = new FrutaDAO();
@@ -276,7 +276,7 @@ public class ComprarFrutas extends javax.swing.JFrame {
 			compra.setQuantidadeComprada(quantidade);
 			//compra.setValorTotal(subTotal);
 			compraDao.create(compra);
-=======
+
 		Fruta fruta = frutaDAO.buscarFrutaPorNome(nome);
 		
 		if (!clienteDAO.existeClienteComCpf(cpf)) {
@@ -315,7 +315,6 @@ public class ComprarFrutas extends javax.swing.JFrame {
 			}
 
 			limparCampos();
->>>>>>> 0f004538e36bceb56cf5ce04c11e50ece504007d
 		}
 		
 	}// GEN-LAST:event_jButton1ActionPerformed
