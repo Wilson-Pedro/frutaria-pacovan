@@ -39,10 +39,8 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\victo\\OneDrive\\Documentos\\NetBeansProjects\\Frutaria\\src\\main\\java\\imagens\\cliente1.png")); // NOI18N
 
-        //jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\victo\\OneDrive\\Documentos\\NetBeansProjects\\Frutaria\\src\\main\\java\\imagens\\Cliente2.PNG")); // NOI18N
-
-       
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
         setResizable(false);
@@ -110,7 +108,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
                                 .addComponent(BtnSalvarFuncionario))
                             .addComponent(TxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(66, Short.MAX_VALUE))))
+                        .addContainerGap(70, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(115, 115, 115)
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,11 +128,11 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
                 .addComponent(jlabel3)
                 .addGap(18, 18, 18)
                 .addComponent(TxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(VoltarHome)
                     .addComponent(BtnSalvarFuncionario))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/frutaria/Cliente2.PNG"))); // NOI18N
@@ -145,9 +143,8 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
