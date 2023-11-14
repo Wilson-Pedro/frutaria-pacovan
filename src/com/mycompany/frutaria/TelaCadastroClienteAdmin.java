@@ -8,11 +8,11 @@ import model.bean.Cliente;
 import model.dao.ClienteDAO;
 import javax.swing.JOptionPane;
 
-public class TelaCadastroCliente extends javax.swing.JFrame {
+public class TelaCadastroClienteAdmin extends javax.swing.JFrame {
 	
 	ClienteDAO dao = new ClienteDAO();
 	
-    public TelaCadastroCliente() {
+    public TelaCadastroClienteAdmin() {
         initComponents();
         TxtBuscar.setText("cpf");
     }
@@ -36,6 +36,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         TxtNumero = new javax.swing.JTextField();
         BtnCadastrarCliente = new javax.swing.JButton();
         BtnAtualizarCliente = new javax.swing.JButton();
+        BtnDeletarCliente = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         TxtBuscar = new javax.swing.JTextField();
@@ -108,6 +109,14 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             }
         });
 
+        BtnDeletarCliente.setBackground(new java.awt.Color(0, 51, 255));
+        BtnDeletarCliente.setText("DELETAR");
+        BtnDeletarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDeletarClienteActionPerformed(evt);
+            }
+        });
+
         TxtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtBuscarActionPerformed(evt);
@@ -143,9 +152,11 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
+                        .addGap(132, 132, 132)
+                        .addComponent(BtnDeletarCliente)
+                        .addGap(32, 32, 32)
                         .addComponent(BtnCadastrarCliente)
-                        .addGap(68, 68, 68)
+                        .addGap(39, 39, 39)
                         .addComponent(BtnAtualizarCliente))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
@@ -221,7 +232,8 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnCadastrarCliente)
-                    .addComponent(BtnAtualizarCliente))
+                    .addComponent(BtnAtualizarCliente)
+                    .addComponent(BtnDeletarCliente))
                 .addGap(34, 34, 34))
         );
 
@@ -338,20 +350,21 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroClienteAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroClienteAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroClienteAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroClienteAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroCliente().setVisible(true);
+                new TelaCadastroClienteAdmin().setVisible(true);
             }
         });
     }
@@ -360,6 +373,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private javax.swing.JButton BtnAtualizarCliente;
     private javax.swing.JButton BtnBuscar;
     private javax.swing.JButton BtnCadastrarCliente;
+    private javax.swing.JButton BtnDeletarCliente;
     private javax.swing.JButton BtnSair;
     private javax.swing.JButton BtnVoltar;
     private javax.swing.JTextField TxtBairro;
