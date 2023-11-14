@@ -44,7 +44,7 @@ public class telaPrincipal extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 385));
         setResizable(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\willl\\OneDrive\\Imagens\\projeto-java\\logo1.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\victo\\OneDrive\\Documentos\\NetBeansProjects\\Frutaria\\src\\main\\java\\imagens\\logo1.png")); // NOI18N
 
         MenuFutas.setText("Comprar");
         MenuFutas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
