@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.frutaria;
 
 import model.bean.CompraFruta;
@@ -247,48 +243,10 @@ public class ComprarFrutas extends javax.swing.JFrame {
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
 		String nome = TxtNome.getText();
 		String cpf = TxtCpf.getText();
-		Integer quantidade = Integer.parseInt(TxtQuantComprar.getText());
+		if(clienteDAO.existeClienteComCpf(cpf)) {
+			Integer quantidade = Integer.parseInt(TxtQuantComprar.getText());
 
-		//Double valor = Double.parseDouble(TxtValorComprar.getText());
-
-		FrutaDAO dao = new FrutaDAO();
-
-		Fruta fruta = dao.buscarFrutaPorNome(nome);
-		fruta.atualizarEstoque(quantidade);
-
-		dao.update(fruta);
-
-		CompraDAO compraDao = new CompraDAO();
-		CompraFruta compra = new CompraFruta();
-		
-		//Double subTotal = valor * quantidade;
-		
-		compra.setCpf(cpf);
-		
-		if(compraDao.existeCompraNaoFinalizadoComCpf(cpf)) {
-			compra = compraDao.buscarCompraNaoFinalizada(cpf);
-			compra.atualizarQuantidade(quantidade);
-			//compra.atualizarValorTotal(subTotal);
-			compraDao.update(compra);
-			
-		} else {
-			compra.setCompraFinalizada(false);
-			compra.setQuantidadeComprada(quantidade);
-			//compra.setValorTotal(subTotal);
-			compraDao.create(compra);
-
-		Fruta fruta = frutaDAO.buscarFrutaPorNome(nome);
-		
-		if (!clienteDAO.existeClienteComCpf(cpf)) {
-			
-			JOptionPane.showMessageDialog(null, "Você precisa se cadastrar antes de fazer a compra!");
-			limparCampos();
-			TxtCpf.setText("");
-			
-		} else if(quantidade > fruta.getEstoque()) {
-			JOptionPane.showMessageDialog(null, "Você não pode comprar um quantidade superior ao estoque");
-		
-		} else if(clienteDAO.existeClienteComCpf(cpf)) {
+			Fruta fruta = frutaDAO.buscarFrutaPorNome(nome);
 			Double valor = fruta.getValor();
 			fruta.atualizarEstoque(quantidade);
 
@@ -313,10 +271,12 @@ public class ComprarFrutas extends javax.swing.JFrame {
 				compra.setValorTotal(subTotal);
 				compraDao.create(compra);
 			}
-
-			limparCampos();
+		} else {
+			JOptionPane.showMessageDialog(null, "Você precisa se cadastrar antes de fazer a compra!");
+			TxtCpf.setText("");
 		}
-		
+
+		limparCampos();
 	}// GEN-LAST:event_jButton1ActionPerformed
 
 	private void limparCampos() {
