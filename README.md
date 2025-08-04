@@ -43,4 +43,4 @@ Com ele, é possível cadastrar novas frutas (acesso restrito ao administrador) 
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   git clone https://github.com/Wilson-Pedro/frutaria-pacovan.git
