@@ -9,18 +9,6 @@ O projeto simula o funcionamento básico de uma frutaria chamada **Pacovan**, on
 
 ---
 
-## 📑 Índice
-
-- [Sobre o projeto](#-sobre-o-projeto)
-- [Funcionalidades](#-funcionalidades)
-- [Tecnologias utilizadas](#-tecnologias-utilizadas)
-- [Como executar](#-como-executar)
-- [Estrutura de pastas](#-estrutura-de-pastas)
-- [Observações](#-observações)
-- [Autor](#-autor)
-
----
-
 ## ✏️ Sobre o projeto
 
 O sistema **Pacovan Frutaria** foi desenvolvido com o propósito de demonstrar conhecimentos em:
